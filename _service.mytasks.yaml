@@ -1,0 +1,7 @@
+InterfaceName: 'status'
+Description: 'My Tasks'
+APIDoc: ''
+Interfaces: 'items,daterange,pagination'
+RequiredScopes: ''
+AdditionalParameters:
+Method: ''

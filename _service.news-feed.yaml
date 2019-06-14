@@ -1,0 +1,7 @@
+InterfaceName: 'status'
+Description: 'News Feed'
+APIDoc: ''
+Interfaces: 'items,daterange,pagination'
+RequiredScopes: ''
+AdditionalParameters:
+Method: ''

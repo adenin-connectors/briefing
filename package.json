@@ -1,0 +1,26 @@
+{
+  "name": "poc",
+  "version": "1.0.0",
+  "description": "Briefing",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "./node_modules/.bin/nodemon app.js"
+  },
+  "dependencies": {
+    "@adenin/cf-provider": "^2.6.4",
+    "agentkeepalive": "^4.0.2",
+    "faker": "^4.1.0",
+    "got": "^9.6.0",
+    "js-yaml": "^3.13.1",
+    "moment-timezone": "^0.5.25"
+  },
+  "devDependencies": {
+    "@adenin/cf-logger": "^1.6.1",
+    "decache": "^4.5.1",
+    "koa": "^2.7.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0",
+    "nodemon": "^1.19.1"
+  }
+}
