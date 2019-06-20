@@ -13,19 +13,22 @@ module.exports = async function (activity) {
     if ($.isErrorResponse(activity, response)) return;
 
     activity.Response.Data.items = response.body.Data.items;
-    let value = response.body.Data.count;
-    activity.Response.Data.title = T(activity, 'Open Tasks');
-    activity.Response.Data.link = "";
-    activity.Response.Data.linkLabel = T(activity, 'All Tasks');
-    activity.Response.Data.actionable = value > 0;
+    if (parseInt(pagination.page) == 1) {
+      let value = response.body.Data.count;
+      activity.Response.Data.title = T(activity, 'Open Tasks');
+      activity.Response.Data.link = "";
+      activity.Response.Data.linkLabel = T(activity, 'All Tasks');
+      activity.Response.Data.actionable = value > 0;
 
-    if (value > 0) {
-      activity.Response.Data.value = value;
-      activity.Response.Data.color = 'blue';
-      activity.Response.Data.description = value > 1 ? T(activity, "There are {0} open tasks.", value)
-        : T(activity, "There is 1 open task.");
-    } else {
-      activity.Response.Data.description = T(activity, 'There are no open tasks.');
+      if (value > 0) {
+        activity.Response.Data.value = value;
+        activity.Response.Data.date = activity.Response.Data.items[0].date;
+        activity.Response.Data.color = 'blue';
+        activity.Response.Data.description = value > 1 ? T(activity, "There are {0} open tasks.", value)
+          : T(activity, "There is 1 open task.");
+      } else {
+        activity.Response.Data.description = T(activity, 'There are no open tasks.');
+      }
     }
   } catch (error) {
     $.handleError(activity, error);
