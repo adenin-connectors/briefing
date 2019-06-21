@@ -13,7 +13,7 @@ module.exports = async (activity) => {
     if (!activity.Context.connector.custom2 || (activity.Context.connector.custom2 != entity.apikey)) {
       activity.Response.ErrorCode = 403;
       activity.Response.Data = {
-        ErrorText: "invalid X-APIKEY"
+        ErrorText: "invalid APIKEY"
       };
       return;
     }
