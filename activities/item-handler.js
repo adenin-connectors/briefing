@@ -73,12 +73,15 @@ module.exports = async (activity) => {
     // split roles separated with "," into string []
     entity.roles = entity.roles.split(',');
 
+    // handle openvalue field if provided and evaluate it
+    if(entity.openvalue) entity.openvalue = doEval(entity.openvalue);
+
 
     if (entity.assignedto.length > 0 || entity.roles.length > 0) {
       // case 1: A collection "all" is returned with users and roles
       collections.push({ name: "all", users: entity.assignedto, roles: entity.roles, date: date });
 
-      if (entity.openValue == true) {
+      if (entity.openvalue == true) {
 
         // case 2: When open == true we return collection “open”, with users and roles
         collections.push({ name: "open", users: entity.assignedto, roles: entity.roles, date: date });
@@ -112,4 +115,15 @@ module.exports = async (activity) => {
   } catch (error) {
     $.handleError(activity, error);
   }
+
+  // evaluates string as boolean value
+  function doEval(expression) {
+    try {
+      return eval(expression);
+    } catch (error) {
+      $.handleError(activity, error);
+    }
+    return true;
+  }
 };
+
