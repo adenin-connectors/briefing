@@ -64,14 +64,19 @@ module.exports = async (activity) => {
 
     let date = new Date(entity.date).toISOString();
 
-    if (!entity.assignedto) entity.assignedto = []; // if there is no assignedto object create empty to avoid errors later
-    if (!entity.roles) entity.roles = []; // if there is no roles object create empty to avoid errors later
+    if (!entity.assignedto) {
+      entity.assignedto = []; // if there is no assignedto object create empty to avoid errors later
+    } else {
+      // split assignees separated with "," into string []
+      entity.assignedto = entity.assignedto.split(',');
+    }
 
-    // split assignees separated with "," into string []
-    entity.assignedto = entity.assignedto.split(',');
-
-    // split roles separated with "," into string []
-    entity.roles = entity.roles.split(',');
+    if (!entity.roles) {
+      entity.roles = []; // if there is no roles object create empty to avoid errors later
+    } else {
+      // split roles separated with "," into string []
+      entity.roles = entity.roles.split(',');
+    }
 
     // handle openvalue field if provided and evaluate it
     if(entity.openvalue) entity.openvalue = doEval(entity.openvalue);
