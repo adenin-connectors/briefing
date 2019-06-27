@@ -6,7 +6,8 @@
       "request": "launch",
       "name": "debug localhost:4000",
       "env": {
-        "NODE_ENV": "development"
+        "NODE_ENV": "development",
+        "CLUSTER_KEY": "jedpojww9fzluz08n1cob9qdbq4w386f"
       },
       "program": "${workspaceFolder}\\app.js"
     },
