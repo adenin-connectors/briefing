@@ -86,7 +86,7 @@ module.exports = async (activity) => {
       // case 1: A collection "all" is returned with users and roles
       collections.push({ name: "all", users: entity.assignedto, roles: entity.roles, date: date });
 
-      if (entity.openvalue == true) {
+      if (entity.openvalue === undefined || entity.openvalue === true) {
 
         // case 2: When open == true we return collection “open”, with users and roles
         collections.push({ name: "open", users: entity.assignedto, roles: entity.roles, date: date });
