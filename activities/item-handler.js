@@ -10,7 +10,7 @@ module.exports = async (activity) => {
     }
 
     // check if apikey is valid
-    if (!activity.Context.connector.apikey || (activity.Context.connector.apikey != entity.apikey)) {
+    if (!activity.Context.connector.custom2 || (activity.Context.connector.custom2 != entity.apikey)) {
       activity.Response.ErrorCode = 403;
       activity.Response.Data = {
         ErrorText: "invalid APIKEY"
