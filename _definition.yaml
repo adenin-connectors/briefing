@@ -9,6 +9,7 @@ ClientSecret: hide
 AccessCodeServiceUrl: hide
 AccessTokenServiceUrl: hide
 Personalized: !!bool true
+WebhookReceiver: !!bool true
 ApiKey: required
 ServiceUrl: hide
 ServiceUrlHint: ''
