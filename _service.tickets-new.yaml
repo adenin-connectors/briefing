@@ -1,0 +1,4 @@
+ServiceName: 'tickets-new'
+InterfaceName: 'status'
+Description: 'New Tickets'
+Interfaces: 'items,daterange,pagination'
