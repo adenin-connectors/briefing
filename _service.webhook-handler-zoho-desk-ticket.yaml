@@ -1,0 +1,4 @@
+ServiceName: 'webhook-handler-zoho-desk-ticket'
+InterfaceName: 'handler'
+Interfaces: 'items'
+Description: 'Handles passed tickets from Zoho Desk webhook'
